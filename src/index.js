@@ -4,15 +4,18 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const QuestionDetails = () => {
+// We are now adding props that are coming as arguements from where we call QuestionDetails
+// (in this case QuestionShowPage), but deconstrcuted 
+const QuestionDetails = ({title, body, author, view_count, created_at, updated_at}) => {
   return(
     <div>
-        <h2>What is your is favorite colour?</h2>
-        <p>Green, blue, red, etc....</p>
-        <p>By John Doe</p>
+        <h2>{title}</h2>
+        <p>{body}</p>
+        <p>By {author.full_name}</p>
         <p>
-          <small>Seen 10 times</small>
-          <small>Last editted 2 hrs ago</small>
+          <small>Seen {view_count} times</small>
+          <small>Created: {created_at.toLocaleString}</small>
+          <small>Last Editted: {updated_at.toLocaleString}</small>
         </p>
     </div>
   )
@@ -48,7 +51,14 @@ root.render(
   // With JSX, we had to access the React element, but with JSX and babbel we can
   // now, write the component as a html tag
   <main>
-    <QuestionDetails/>
+    <QuestionDetails 
+    title = "What is your favourite colour?" 
+    body = "Red, blue, green, etc..."
+    author = {{full_name: "John Doe"}}
+    view_count = {34}
+    created_at = {new Date()}
+    updated_at = {new Date()}
+    />
     <AnswerDetails/>
   </main>
   // Note, with React and JSX, all tags must be closed
