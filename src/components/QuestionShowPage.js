@@ -1,5 +1,6 @@
 import QuestionDetails from "./QuestionDetails"
 import AnswerDetails from "./AnswerDetails"
+import AnswerList from "./AnswerList"
 
 const QuestionShowPage = () => {
     return(
@@ -12,10 +13,12 @@ const QuestionShowPage = () => {
             created_at = {new Date()}
             updated_at = {new Date()}
             />
-            <AnswerDetails
-            title = "This the best answer"
-            author={{full_name: "Lex De-Haan"}}
-            created_at={new Date()}
+            <AnswerList
+            answers={[
+                {body: "Answer 1",  author: {full_name: "Steve Jobs"}, created_at: new Date()},
+                {body: "Answer 2",  author: {full_name: "Jeff Bezos"}, created_at: new Date()},
+                {body: "Answer 3",  author: {full_name: "Elon Musk"}, created_at: new Date()},
+            ]}
             />
         </main>
     )
