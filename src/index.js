@@ -21,14 +21,14 @@ const QuestionDetails = ({title, body, author, view_count, created_at, updated_a
   )
 }
 
-const AnswerDetails = () => {
+const AnswerDetails = ({body, author, created_at}) => {
   return (
     <div>
-      <p>This is the body of my answer</p>
-      <p>By Who Knows</p>
+      <p>{body}</p>
+      <p>By {author.full_name}</p>
       <p>
         <small>Created at:</small>
-        <small>1 day ago</small>
+        <small>{created_at.toLocaleString}</small>
       </p>
     </div>
   )
@@ -59,7 +59,11 @@ root.render(
     created_at = {new Date()}
     updated_at = {new Date()}
     />
-    <AnswerDetails/>
+    <AnswerDetails
+    title = "This the best answer"
+    author={{full_name: "Lex De-Haan"}}
+    created_at={new Date()}
+    />
   </main>
   // Note, with React and JSX, all tags must be closed
   // for example, an html element self closing tag like <hr> might still work for regular html
