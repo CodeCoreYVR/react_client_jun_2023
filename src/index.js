@@ -3,36 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import QuestionDetails from './components/QuestionDetails';
+// import AnswerDetails from './components/AnswerDetails';
+import QuestionShowPage from './components/QuestionShowPage';
 
 // We are now adding props that are coming as arguements from where we call QuestionDetails
 // (in this case QuestionShowPage), but deconstrcuted 
-const QuestionDetails = ({title, body, author, view_count, created_at, updated_at}) => {
-  return(
-    <div>
-        <h2>{title}</h2>
-        <p>{body}</p>
-        <p>By {author.full_name}</p>
-        <p>
-          <small>Seen {view_count} times</small>
-          <small>Created: {created_at.toLocaleString}</small>
-          <small>Last Editted: {updated_at.toLocaleString}</small>
-        </p>
-    </div>
-  )
-}
 
-const AnswerDetails = ({body, author, created_at}) => {
-  return (
-    <div>
-      <p>{body}</p>
-      <p>By {author.full_name}</p>
-      <p>
-        <small>Created at:</small>
-        <small>{created_at.toLocaleString}</small>
-      </p>
-    </div>
-  )
-}
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -50,21 +28,7 @@ root.render(
   // We are not using strict mode for now
   // With JSX, we had to access the React element, but with JSX and babbel we can
   // now, write the component as a html tag
-  <main>
-    <QuestionDetails 
-    title = "What is your favourite colour?" 
-    body = "Red, blue, green, etc..."
-    author = {{full_name: "John Doe"}}
-    view_count = {34}
-    created_at = {new Date()}
-    updated_at = {new Date()}
-    />
-    <AnswerDetails
-    title = "This the best answer"
-    author={{full_name: "Lex De-Haan"}}
-    created_at={new Date()}
-    />
-  </main>
+  <QuestionShowPage/>
   // Note, with React and JSX, all tags must be closed
   // for example, an html element self closing tag like <hr> might still work for regular html
   // but for react, it must be closed like <hr/> or <hr></hr>
