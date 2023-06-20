@@ -18,6 +18,19 @@ const QuestionDetails = () => {
   )
 }
 
+const AnswerDetails = () => {
+  return (
+    <div>
+      <p>This is the body of my answer</p>
+      <p>By Who Knows</p>
+      <p>
+        <small>Created at:</small>
+        <small>1 day ago</small>
+      </p>
+    </div>
+  )
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // StrictMode is a development only component. We might get rid of this later. But what it does 
@@ -34,7 +47,10 @@ root.render(
   // We are not using strict mode for now
   // With JSX, we had to access the React element, but with JSX and babbel we can
   // now, write the component as a html tag
-  <QuestionDetails/>
+  <main>
+    <QuestionDetails/>
+    <AnswerDetails/>
+  </main>
   // Note, with React and JSX, all tags must be closed
   // for example, an html element self closing tag like <hr> might still work for regular html
   // but for react, it must be closed like <hr/> or <hr></hr>
